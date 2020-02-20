@@ -43,7 +43,7 @@ DataSet::DataSet(const std::string &fileName) {
 
 
             if (index == 0) {
-
+                ss >> temp;
             } else if (index == 1) {
 
                 /* extracting word by word from stream */
