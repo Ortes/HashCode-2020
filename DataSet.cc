@@ -103,7 +103,7 @@ DataSet::DataSet(const std::string &fileName) {
 void DataSet::write(const DataSet& dataSet, const std::string& fileName) {
   std::ofstream file(fileName);
   file << dataSet.libraries.size() << '\n';
-  for (const auto &library: dataSet.libraries) {
+  for (const auto &library: dataSet.signedUpLibraries) {
     file << library->id << ' ' << library->scanned.size() << '\n';
     for (const auto &book: library->scanned) {
       file << book->id << ' ';

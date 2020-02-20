@@ -1,9 +1,8 @@
 #include <algorithm>
 #include "DataSet.hh"
 
-int main(int argc, char* argv[]) {
-
-    DataSet dataSet = DataSet::Parse(argv[1] ? argv[1] : "file");
+void processFile(const std::string &fileName) {
+    DataSet dataSet = DataSet::Parse(fileName);
 
     std::vector<Library*> libraries = dataSet.libraries;
     std::sort(libraries.begin(), libraries.end(), [](auto a, auto b) -> bool { return a->signUpTime > b->signUpTime; });
@@ -23,7 +22,12 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    DataSet::write(dataSet, "output");
+    DataSet::write(dataSet, fileName + ".output");
+}
 
+int main(int argc, char* argv[]) {
+
+    for (int i = 1; i < argc; ++i)
+        processFile(argv[i]);
     return 0;
 }
