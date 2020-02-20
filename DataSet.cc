@@ -66,6 +66,7 @@ DataSet::DataSet(const std::string &fileName) {
                             li->nbScanPerDay = found;
                     }
                     i++;
+                    temp = "";
                 }
                 it++;
 
@@ -75,6 +76,7 @@ DataSet::DataSet(const std::string &fileName) {
                     if (std::stringstream(temp) >> found) {
                         li->books.push_back(this->books[found]);
                     }
+                    temp = "";
                 }
 
                 this->libraries.push_back(li);
