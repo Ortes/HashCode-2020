@@ -36,21 +36,40 @@ DataSet::DataSet(const std::string &fileName) {
     int index = 0;
     for (it = v.begin(); it != v.end(); it++){
         std::stringstream ss = std::stringstream(*it);
+        int index_book = 0;
+        int index_library = 0;
         while (!ss.eof()) {
 
-            /* extracting word by word from stream */
-            ss >> temp;
 
-            /* Checking the given word is integer or not */
-            if (std::stringstream(temp) >> found)
-                if (index == 0) {
 
+            if (index == 0) {
+
+            } else if (index == 1) {
+
+                /* extracting word by word from stream */
+                ss >> temp;
+                if (std::stringstream(temp) >> found) {
+                    Book *book = new Book(index_book, found);
+                    this->books.push_back(book);
+                    index_book++;
                 }
-                std::cout << found << " ";
+            } else {
 
+                for (int i = 0; i < 2; i++) {
+                    Library *li = new Library(index_book, found);
+                    /* extracting word by word from stream */
+                    ss >> temp;
+                    if (std::stringstream(temp) >> found) {
+
+                        this->books.push_back(book);
+                        index_book++;
+                    }
+                }
+            }
             /* To save from space at the end of string */
             temp = "";
         }
+        index++;
     }
 
 

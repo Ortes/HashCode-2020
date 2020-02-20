@@ -2,10 +2,13 @@
 #include "Book.hh"
 
 class Library {
-  public:
-  std::vector<Book> books;
-  int signUpTime;
+public:
+    int id;
+    std::vector<Book> books;
+    int signUpTime;
 
-  int beginSignUpAt = -1;
-  std::vector<Book> scanned;
+    Library(const std::vector<Book> &books);
+
+    int beginSignUpAt = -1;
+    std::vector<Book> scanned;
 };

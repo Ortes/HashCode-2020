@@ -9,6 +9,8 @@ public:
   int id;
   int score;
 
-  std::vector<Library> iAmInLibraries;
+    Book(int id, int score);
+
+    std::vector<Library> iAmInLibraries;
   Library* scannedBy;
 };

@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "DataSet.hh"
 
 int main(int argc, char* argv[]) {
