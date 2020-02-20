@@ -7,7 +7,9 @@ public:
   std::vector<Book*> books;
   int days;
 
+  DataSet(const std::string &fileName);
+
   static DataSet Parse(const std::string &fileName) {
-    return DataSet();
+    return DataSet(fileName);
   }
 };
