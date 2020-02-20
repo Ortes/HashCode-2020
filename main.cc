@@ -22,5 +22,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
+    DataSet::write(dataSet, "output");
+
     return 0;
 }
