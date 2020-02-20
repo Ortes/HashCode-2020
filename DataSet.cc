@@ -34,6 +34,7 @@ DataSet::DataSet(const std::string &fileName) {
     std::string temp;
     int found;
     int index = 0;
+    int index_first_line = 0;
     int index_library = 0;
     for (it = v.begin(); it != v.end(); it++){
         std::stringstream ss = std::stringstream(*it);
@@ -45,6 +46,12 @@ DataSet::DataSet(const std::string &fileName) {
 
             if (index == 0) {
                 ss >> temp;
+                if (index_first_line == 2) {
+                    if (std::stringstream(temp) >> found) {
+                        this->days = found;
+                    }
+                }
+                index_first_line++;
             } else if (index == 1) {
 
                 /* extracting word by word from stream */
@@ -91,7 +98,7 @@ DataSet::DataSet(const std::string &fileName) {
 
     for (int j = 0; j < this->libraries.size(); ++j) {
         std::cout << this->libraries.size() << std::endl;
-        std::cout << this->libraries[j]->id << std::endl;
+        std::cout << this->libraries[j]->signUpTime << std::endl;
     }
 
     inFile.close();
