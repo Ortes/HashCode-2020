@@ -3,8 +3,8 @@
 
 class DataSet {
 public:
-  std::vector<Library> libraries;
-  std::vector<Library> books;
+  std::vector<Library*> libraries;
+  std::vector<Book*> books;
   int days;
 
   static DataSet Parse(const std::string &fileName) {

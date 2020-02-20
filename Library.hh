@@ -5,4 +5,6 @@ class Library {
   public:
   std::vector<Book> books;
   int signUpTime;
+
+  int beginSignUpAt;
 };
