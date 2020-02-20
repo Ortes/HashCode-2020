@@ -1,5 +1,5 @@
 #include "Library.hh"
 
-Library::Library(const std::vector<Book> &books) {
+Library::Library(int id) : id(id) {
 
 }

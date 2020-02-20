@@ -4,10 +4,11 @@
 class Library {
 public:
     int id;
-    std::vector<Book> books;
+    std::vector<Book*> books;
     int signUpTime;
+    int nbScanPerDay;
 
-    Library(const std::vector<Book> &books);
+    Library(int id);
 
     int beginSignUpAt = -1;
     std::vector<Book> scanned;

@@ -54,17 +54,31 @@ DataSet::DataSet(const std::string &fileName) {
                     index_book++;
                 }
             } else {
+                Library *li = new Library(index_library);
 
-                for (int i = 0; i < 2; i++) {
-                    Library *li = new Library(index_book, found);
-                    /* extracting word by word from stream */
+                int i = 0;
+                while (!ss.eof()) {
                     ss >> temp;
                     if (std::stringstream(temp) >> found) {
+                        if (i == 1) {
+                            li->signUpTime = found;
+                        } else if (i == 2)
+                            li->nbScanPerDay = found;
+                    }
+                    i++;
+                }
+                it++;
 
-                        this->books.push_back(book);
-                        index_book++;
+
+                while (!ss.eof()) {
+                    ss >> temp;
+                    if (std::stringstream(temp) >> found) {
+                        li->books.push_back(this->books[found]);
                     }
                 }
+
+                this->libraries.push_back(li);
+                index_library++;
             }
             /* To save from space at the end of string */
             temp = "";
