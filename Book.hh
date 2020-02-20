@@ -1,6 +1,8 @@
 #pragma once
 
-#include "Library.hh"
+#include <vector>
+
+class Library;
 
 class Book {
 public:
@@ -8,4 +10,5 @@ public:
   int score;
 
   std::vector<Library> iAmInLibraries;
+  Library* scannedBy;
 };

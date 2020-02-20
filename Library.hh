@@ -6,5 +6,6 @@ class Library {
   std::vector<Book> books;
   int signUpTime;
 
-  int beginSignUpAt;
+  int beginSignUpAt = -1;
+  std::vector<Book> scanned;
 };
