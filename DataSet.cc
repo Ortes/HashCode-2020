@@ -69,7 +69,7 @@ DataSet::DataSet(const std::string &fileName) {
                 }
                 it++;
 
-
+                ss = std::stringstream(*it);
                 while (!ss.eof()) {
                     ss >> temp;
                     if (std::stringstream(temp) >> found) {
