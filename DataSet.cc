@@ -89,3 +89,25 @@ DataSet::DataSet(const std::string &fileName) {
 
     inFile.close();
 }
+
+
+void DataSet::write(const DataSet& dataSet, const std::string& fileName) {
+  std::ofstream file(fileName);
+  file << dataSet.libraries.size() << '\n';
+  for (const auto &library: dataSet.libraries) {
+    file << library->id << ' ' << library->scanned.size() << '\n';
+    for (const auto &book: library->scanned) {
+      file << book->id << ' ';
+    }
+    file << '\n';
+  }
+}
+
+bool DataSet::ScanBook(Book* book, Library* library) {
+  if (this->scanned.insert(book).second) {
+    book->iAmInLibraries.push_back(library);
+    library->scanned.push_back(book);
+    return true;
+  }
+  return false;
+}

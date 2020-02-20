@@ -11,6 +11,6 @@ public:
 
     Book(int id, int score);
 
-    std::vector<Library> iAmInLibraries;
+  std::vector<Library*> iAmInLibraries;
   Library* scannedBy;
 };

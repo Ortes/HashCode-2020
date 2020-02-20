@@ -11,5 +11,5 @@ public:
     Library(int id);
 
     int beginSignUpAt = -1;
-    std::vector<Book> scanned;
+    std::vector<Book*> scanned;
 };
