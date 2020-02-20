@@ -3,4 +3,4 @@ project(HashCode_2020)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(HashCode_2020 main.cpp)
+add_executable(HashCode_2020 main.cpp Book.cc Book.hh Library.cc Library.hh)
