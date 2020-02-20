@@ -34,10 +34,11 @@ DataSet::DataSet(const std::string &fileName) {
     std::string temp;
     int found;
     int index = 0;
+    int index_library = 0;
     for (it = v.begin(); it != v.end(); it++){
         std::stringstream ss = std::stringstream(*it);
         int index_book = 0;
-        int index_library = 0;
+
         while (!ss.eof()) {
 
 
@@ -88,6 +89,10 @@ DataSet::DataSet(const std::string &fileName) {
         index++;
     }
 
+    for (int j = 0; j < this->libraries.size(); ++j) {
+        std::cout << this->libraries.size() << std::endl;
+        std::cout << this->libraries[j]->id << std::endl;
+    }
 
     inFile.close();
 }
