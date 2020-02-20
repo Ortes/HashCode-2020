@@ -3,7 +3,8 @@
 
 int main(int argc, char *argv[]) {
 
-  DataSet::Parse(argv[1]);
+  DataSet dataSet = DataSet::Parse(argv[1] ? argv[1] : "file");
+  
 
   return 0;
 }
