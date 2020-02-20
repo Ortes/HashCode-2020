@@ -6,4 +6,7 @@ class Library {
   std::vector<Book> books;
   int signUpTime;
 
+  static Library GetFastestSignUpLibrary() {
+    return Library();
+  }
 };

@@ -1,10 +1,9 @@
 #include <iostream>
-#include "Parser.hh"
+#include "DataSet.hh"
 
 int main(int argc, char *argv[]) {
 
-  Parser::parse(argv[1]);
-
+  DataSet::Parse(argv[1]);
 
   return 0;
 }
