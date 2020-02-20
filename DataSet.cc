@@ -96,11 +96,6 @@ DataSet::DataSet(const std::string &fileName) {
         index++;
     }
 
-    for (int j = 0; j < this->libraries.size(); ++j) {
-        std::cout << this->libraries.size() << std::endl;
-        std::cout << this->libraries[j]->signUpTime << std::endl;
-    }
-
     inFile.close();
 }
 
