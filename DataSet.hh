@@ -20,4 +20,6 @@ public:
     static void write(const DataSet&, const std::string&);
 
     bool ScanBook(Book*, Library*);
+
+    void ImproveResults();
 };

@@ -115,6 +115,7 @@ void DataSet::write(const DataSet& dataSet, const std::string& fileName) {
     }
     file << '\n';
   }
+  file.close();
 }
 
 bool DataSet::ScanBook(Book* book, Library* library) {
@@ -124,4 +125,7 @@ bool DataSet::ScanBook(Book* book, Library* library) {
     return true;
   }
   return false;
+}
+
+void DataSet::ImproveResults() {
 }
