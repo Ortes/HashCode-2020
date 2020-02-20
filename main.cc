@@ -5,7 +5,7 @@ void processFile(const std::string &fileName) {
     DataSet dataSet = DataSet::Parse(fileName);
 
     std::vector<Library*> libraries = dataSet.libraries;
-    std::sort(libraries.begin(), libraries.end(), [](auto a, auto b) -> bool { return a->signUpTime > b->signUpTime; });
+    std::sort(libraries.begin(), libraries.end(), [](auto a, auto b) -> bool { return a->Score() > b->Score(); });
 
     int days = 0;
     for (int i = 0; days < dataSet.days && i < libraries.size(); ++i) {
@@ -17,7 +17,9 @@ void processFile(const std::string &fileName) {
     });
 
     for (const auto& library: dataSet.signedUpLibraries) {
-        for (const auto& book: library->books) {
+        auto books = library->books;
+        std::sort(library->books.begin(), library->books.end(), [](auto a, auto b) -> bool { return a->score < b->score; });
+        for (const auto& book: books) {
             dataSet.ScanBook(book, library);
         }
     }
